@@ -1,0 +1,52 @@
+<?php
+Class Vinho{
+    //declaração de atributos
+    private $nome;
+    private $tipo;
+    private $preco;
+    private $safra;
+
+    //metodos de acesso
+    public function setNome($nome){
+        $this->nome=$nome;
+    }
+    public function getNome(){
+        return $this->nome;
+    }
+
+    public function setTipo($tipo){
+        $this->tipo=$tipo;
+    }
+    public function getTipo(){
+        return $this->tipo;
+    }
+    public function setPreco($preco){
+        $this->preco=$preco;
+    }
+    public function getPreco(){
+        return $this->preco;
+    }
+    public function setSafra($safra){
+        $this->safra=$safra;
+    }
+    public function getSafra(){
+        return $this->safra;
+    }
+
+
+    //demais métodos
+    public function mostrarVinho(){
+        $dados="Nome:$this->nome Tipo:$this->tipo Preço:$this->preco Safra:$this->safra";
+        return $dados;
+    }
+
+    public function verificarPreco(){
+        $retorno=false;
+        if($this->preco<25){
+            $retorno=true;
+            return $retorno;
+        }else{
+            return $retorno;
+        }
+    }
+}
