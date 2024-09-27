@@ -1,0 +1,48 @@
+<?php
+//chamando a Classe
+require_once "Vinho.php";
+//puxando os atributos
+$nome=$_POST['nome'];
+$tipo=$_POST['tipo'];
+$preco=$_POST['preco'];
+$safra=$_POST['safra'];
+//é botão do html
+$button = isset($_POST['btn']); // Verificando se o botão foi clicado
+
+//colocando os valores na classe
+$obj=new Vinho(); 
+$obj->setNome($nome);
+$obj->setTipo($tipo);
+$obj->setPreco($preco);
+$obj->setSafra($safra);
+
+
+//mensagem
+if($button){
+    $mensagem = "Alerta gerado pelo PHP";
+    if($obj->verificarPreco()){
+        $mensagem = "Produto em Oferta";
+        echo "<script>alert('$mensagem');</script>";
+    }else{
+        $mensagem = "Produto com o preço normal";
+        echo "<script>alert('$mensagem');</script>";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Preço de Vinho</title>
+</head>
+<body>
+    <form action="" method="post">
+        Nome:<input type="text" name="nome" id="nome"><br>
+        Tipo: <input type="text" name="tipo" id="tipo"><br>
+        Preço: <input type="text" name="preco" id="preco" required><br>
+        Safra: <input type="text" name="safra" id="safra"><br>
+        <input type="submit" name="btn" id="btn" value="Enviar">
+    </form>
+</body>
+</html>
